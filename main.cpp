@@ -46,6 +46,10 @@ bool finalLista (tLista*pLista)
 }
 void incluirNoFim (tLista*pLista, int info)
 {
+ 
+  int lados;
+  cout << "informe os lados" << endl;
+  cin >> lados;
   
   tNo*no;
   no=criaNo(info);
@@ -54,10 +58,16 @@ void incluirNoFim (tLista*pLista, int info)
     pLista -> primeiro=no;
   }
   else 
-  pLista-> ultimo ->proximo=no;
+  {
+    pLista ->ultimo -> proximo=no;
+  }
+  pLista-> ultimo=no;
+  pLista -> marcador=no;
   pLista ->tamanho ++;
 
 }
+
+
 
 void imprimirLista (tLista*pLista)
 {
@@ -68,28 +78,33 @@ void imprimirLista (tLista*pLista)
     cout << "a informação e: " <<informacao << endl;
     pLista->marcador= pLista->marcador ->proximo;
   }
+
 }
 int main() 
 {
 
   tLista* idades = new tLista;
   inicializalista(idades);
-  cout << " o tamanho da lista e" << obterTamanho (idades) << endl;
-  int idadejoao=10;
-  int idadeMaria=20;
-  int idadejose=30;
 
-  incluirNoFim (idades, idadejoao);
-  incluirNoFim (idades, idadeMaria);
-  incluirNoFim (idades, idadejose);
-  
-  cout << " o tamanho da lista e" << obterTamanho (idades)<< endl;
-  cout << "info do ultimo elemento DA LISTA" << idades ->ultimo->info << endl;
-  
-  imprimirLista(idades);
-  incluirNoFim(idades,50);
-  cout << "imprimindo apos outra edicao" << endl;
-  imprimirLista (idades);
 
+  cout << " o tamanho da lista e" << idades -> tamanho << endl;
+
+int tri;
+cout << "Por favor informe quantos triagulos deseja adicionar" << endl;
+cin >> tri;
+  for (int i=0; i<tri; i++)
+  {
+
+  int lado1,lado2,lado3;
+
+  incluirNoFim (idades, lado1);
+  cout << " o tamanho da lista e: " << idades -> tamanho << endl;
+  incluirNoFim (idades, lado2);
+  cout << " o tamanho da lista e: " << idades -> tamanho 
+  << endl;
+  incluirNoFim (idades,lado3);
+  cout << " o tamanho da lista e: " << idades -> tamanho << endl;
+
+  }
 
 }
